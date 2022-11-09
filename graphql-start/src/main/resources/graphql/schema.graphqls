@@ -1,0 +1,18 @@
+type Query{
+  tattooById(id: ID): Tattoo
+}
+
+type Tattoo{
+  id: ID
+  url: String
+  color: Boolean
+  author: Author
+  city: String
+  state: String
+}
+
+type Author{
+  id: ID
+  name: String
+  instagramUser: String
+}
