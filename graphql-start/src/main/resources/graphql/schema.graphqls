@@ -1,5 +1,6 @@
 type Query{
   tattooById(id: ID): Tattoo
+  studioById(id: ID): Studio
 }
 
 type Tattoo{
@@ -9,6 +10,11 @@ type Tattoo{
   author: Author
   city: String
   state: String
+}
+
+type Studio{
+  id: ID
+  artists: [Author]
 }
 
 type Author{

@@ -24,7 +24,10 @@ public class Author {
     );
 
     public static Author findById(String id){
-        return  authors.stream().filter(author -> author.getId().equals(id)).findFirst().orElse(null);
+        return  authors.stream()
+                .filter(author -> author.getId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 
     public String getId(){
