@@ -1,0 +1,9 @@
+spring:
+  graphql:
+    graphiql:
+      enabled: true
+      path: /graphiql
+
+  datasource:
+    url: jdbc:mongodb://mongodb0.example.com:27017
+    driverClassName: mongodb.jdbc.MongoDriver
