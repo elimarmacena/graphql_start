@@ -7,11 +7,18 @@ import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
+
 @Controller
 public class TattooController {
     @QueryMapping
     public Tattoo tattooById(@Argument String id){
         return Tattoo.findById(id);
+    }
+
+    @QueryMapping
+    public List<Tattoo> tattooByAuthor(@Argument String author){
+        return Tattoo.findByAuthor(author);
     }
 
     @SchemaMapping

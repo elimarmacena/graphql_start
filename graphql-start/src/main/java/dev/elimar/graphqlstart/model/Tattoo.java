@@ -2,7 +2,7 @@ package dev.elimar.graphqlstart.model;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 public class Tattoo {
     private String id;
@@ -26,6 +26,12 @@ public class Tattoo {
         return tattoos.stream()
                 .filter(tattoo -> tattoo.getId().equals(id))
                 .findFirst().orElse(null);
+    }
+
+    public static List<Tattoo> findByAuthor(String id){
+        return  tattoos.stream()
+                .filter(tattoo -> tattoo.getAuthorId().equals(id))
+                .collect(Collectors.toList());
     }
 
     public String getId(){
