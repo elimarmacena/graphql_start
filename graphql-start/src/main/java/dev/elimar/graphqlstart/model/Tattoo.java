@@ -34,6 +34,13 @@ public class Tattoo {
                 .collect(Collectors.toList());
     }
 
+    public static List<Tattoo> findByAuthors(List<Author> authors){
+        List<String> authorIds = authors.stream().map(a -> a.getId()).collect(Collectors.toList());
+        return tattoos.stream()
+                .filter(tattoo -> authorIds.contains(tattoo.getAuthorId()))
+                .collect(Collectors.toList());
+    }
+
     public String getId(){
         return this.id;
     }

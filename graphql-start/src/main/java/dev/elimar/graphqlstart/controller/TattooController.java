@@ -21,6 +21,12 @@ public class TattooController {
         return Tattoo.findByAuthor(author);
     }
 
+    @QueryMapping
+    public List<Tattoo> tattooByAuthorObj(@Argument Author author){
+        List<Author> authors = Author.getByAttributes(author);
+        return Tattoo.findByAuthors(authors);
+    }
+
     @SchemaMapping
     public Author author(Tattoo tattoo){
         return Author.findById(tattoo.getAuthorId());

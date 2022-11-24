@@ -1,6 +1,7 @@
 type Query{
   tattooById(id: ID): Tattoo
   tattooByAuthor(author: String): [Tattoo]
+  tattooByAuthorObj(author: AuthorInput): [Tattoo]
   studioById(id: ID): Studio
 }
 
@@ -22,4 +23,9 @@ type Author{
   id: ID
   name: String
   instagramUser: String
+}
+
+input AuthorInput{
+  id: String
+  name: String
 }

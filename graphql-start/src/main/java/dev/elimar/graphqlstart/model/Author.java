@@ -1,9 +1,9 @@
 package dev.elimar.graphqlstart.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Author {
     private String id;
@@ -32,5 +32,25 @@ public class Author {
 
     public String getId(){
         return this.id;
+    }
+    public String getName(){
+        return this.name;
+    }
+
+    public static List<Author> getByAttributes(Author author){
+        List<Author> authorsById = authors.stream()
+                .filter(ar -> ar.getId().equals(author.getId()))
+                .collect(Collectors.toList());
+        List<Author> authorsByName = authors.stream()
+                .filter(ar -> ar.getName().equals(author.getName()))
+                .collect(Collectors.toList());
+        List<Author> result = new ArrayList<>(authorsById);
+        result.remove(authorsByName);
+        result.addAll(authorsByName);
+        return result;
+    }
+    @Override
+    public String toString() {
+        return String.format("ID {%s}:name {%s}, user {%s}",this.id,this.name,this.instagramUser);
     }
 }
